@@ -72,31 +72,25 @@ public class GitHubClient {   // to be a client to send requests to the GitHub s
 
     private void extractKeywords(List<Item> items) {
         MonkeyLearnClient monkeyLearnClient = new MonkeyLearnClient();
-//        List<String> descriptions = new ArrayList<>();
-//        for (Item item : items) {
-//            String description = item.getDescription().replace("·", " ");
-//            descriptions.add(description);
-//
-//        }
-// Java 8 Stream API
-    List<String> descriptions = items.stream()
-            .map(Item -> Item.getDescription().replace("·", " "))
-            .collect(Collectors.toList());
-//        for(String s: descriptions) {
-//            System.out.println(s);
-//        }
+        List<String> descriptions = new ArrayList<>();
+        for (Item item : items) {
+            descriptions.add(item.getDescription());
+        }
 
-
-
+        List<String> titles = new ArrayList<>();
+        for (Item item : items) {
+            titles.add(item.getTitle());
+        }
         List<Set<String>> keywordList = monkeyLearnClient.extract(descriptions);
+        if (keywordList.isEmpty()) {
+            keywordList = monkeyLearnClient.extract(titles);
+        }
 
-
-
-        for (int i = 0; i < items.size(); i++) {
+        for (int i = 0; i < keywordList.size(); i++) {
             items.get(i).setKeywords(keywordList.get(i));
         }
-    }
 
+    }
 
 //    private void extractKeywords(List<Item> items){
 //        MonkeyLearnClient monkeyLearnClient = new MonkeyLearnClient();

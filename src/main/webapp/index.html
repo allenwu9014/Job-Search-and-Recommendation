@@ -111,6 +111,24 @@
     </ul>
 </footer>
 
+<script type="text/html" id="tpl">
+    <li id="{{id}}" class="item">
+        <img src="{{company_logo}}">
+        <div>
+            <a class="item-name" href="{{url}}"
+               target="_blank">
+                {{title}}
+            </a>
+            <p class="item-keyword">Keyword: {{keywords}}
+            </p>
+        </div>
+        <p class="item-address">{{location}}</p>
+        <p class="fav-link">
+            <i class="{{favorite}}" data-item_id="{{id}}"></i>
+        </p>
+    </li>
+</script>
+
 <script src="https://rawgit.com/emn178/js-md5/master/build/md5.min.js"></script>
 
 <script src="scripts/main.js"></script>

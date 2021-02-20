@@ -1,2 +1,2 @@
-/MySQLDBUtil.java
-/.idea
+src/**/MySQLDBUtil.java
+.idea
