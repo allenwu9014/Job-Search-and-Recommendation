@@ -39,12 +39,12 @@ public class MonkeyLearnClient {
         try {
             jsonBody = mapper.writeValueAsString(body);
 
-            String[] list = jsonBody.split("·");
-            String str = new String();
-            for (String s: list) {
-                str += s;
-            }
-            jsonBody = str;
+//            String[] list = jsonBody.split("·");
+//            String str = new String();
+//            for (String s: list) {
+//                str += s;
+//            }
+//            jsonBody = str;
 
 //            reBuilJsonBuild = new StringBuilder(jsonBody);
 //            reBuilJsonBuild.replace(0,reBuilJsonBuild.length(),"·");
